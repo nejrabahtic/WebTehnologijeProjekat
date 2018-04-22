@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/*UNOS KOMENTARA*/
+.kolonaUK{
+	height: inherit;
+	padding-top: 5%;
+}
+.headerUK{
+	height: 30%;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.centarUK{
+	height: 60%;
+	margin-top: 1%;
+	overflow: hidden;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dnoUK{
+	height: 10%;
+	margin-top: 1%;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+}
+table#tabelaC{
+	border-collapse: collapse;
+	padding: 0;
+	width: 40%;
+}
+table#tabelaC td{
+	border: 3px solid #1B002B;
+	height: 40px;
+}
+table#tabelaV{
+	border-collapse: collapse;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+}
+table#tabelaD{
+	border-collapse: collapse;
+	padding: 0;
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.inputUK{
+	text-align: center;
+	width: -webkit-fill-available;
+}
+.updown{
+	width: -webkit-fill-available;
+}
+button#unoskompotvrdi{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}

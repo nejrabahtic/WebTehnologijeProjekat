@@ -1,0 +1,98 @@
+<div class="zajednicki">
+	<div class="glavni">
+		<div class="red">
+			<!--Forma za login-->
+			<div class="l">
+				<form action="http://localhost:3000/login" method="POST">
+					<table class="left">
+						<tr>
+							<td class="tdlogin"><h3>Login</h3></td>
+						</tr>
+						<tr>
+							<td class="tdlogin" colspan="2"><input type="text" name="username" placeholder="E-mail"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin" colspan="2"><input type="password" name="password" placeholder="Password"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin" colspan="2"><button id="loginse" type="submit">Login</button></td>
+						</tr>
+						<tr>
+							<td class="tdlogin" colspan="2"><a href="login.html" id="sifrazaboravljena">Zaboravili ste šifru?</a></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<!--Forma za registraciju-->
+			<div class="r">
+				<form method="POST" action="http://localhost:3000/register">
+					<table class="right">
+						<tr>
+							<td class="tdlogin"><h3 id="Header">Registracija studenta</h3></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="ime" type="text" name="naziv" placeholder="Ime i prezime" onFocusOut="validiraj(this, 'imeIPrezime')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="korisnikIme" type="text" name="username" placeholder="Korisničko ime"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="mail" type="text" name="email" placeholder="email"  onFocusOut="validiraj(this, 'email')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="index" type="text" name="index" placeholder="index"  onFocusOut="validiraj(this, 'index')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin">
+								<select name="nastavnaGrupa" id="ng">
+								  	<option value="1">Nastavna grupa 1</option>
+								  	<option value="2">Nastavna grupa 2</option>
+								  	<option value="3">Nastavna grupa 3</option>
+								  	<option value="4">Nastavna grupa 4</option>
+								  	<option value="5">Nastavna grupa 5</option>
+								  	<option value="6">Nastavna grupa 6</option>
+								  	<option value="7">Nastavna grupa 7</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="maxGrupa" type="number" name="brojGrupa" placeholder="Maksimalni broj grupa"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="regRepozitorij" type="text" name="regex" placeholder="Regeks za repozitoriji"></td>
+						</tr>
+				        <tr>
+				        	<td class="tdlogin"><input id="trenSem"type="text" name="semestar" placeholder="Trenutni semestar" onFocusOut="validiraj(this, 'trenutniSemestar')"></td>
+				        </tr>
+						<tr>
+							<td class="tdlogin"><input id="akGod" type="text" name="akGod" placeholder="20AB/20CD"  onFocusOut="validiraj(this, 'akademskaGodina')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="pass" type="password" name="password" placeholder="Password"  onFocusOut="validiraj(this, 'sifra')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="passConf" type="password" name="sifrapotvrda" placeholder="Potvrdi password" onFocusOut="validiraj(this, 'potvrdaSifre')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="bitURL" type="text" name="bitURL" placeholder="Bitbucket URL" onFocusOut="validiraj(this, 'bitbucketURL')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="bitSSH" type="text" name="bitSSH" placeholder="Bitbucket SSH" onFocusOut="validiraj(this, 'bitbucketSSH')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin"><input id="nazivRepozitorija" type="text" name="imeRepozitorija" placeholder="Naziv repozitorija" onFocusOut="validiraj(this, 'nazivRepozitorija')"></td>
+						</tr>
+						<tr>
+							<td class="tdlogin">
+								<button id="registrujStudenta" onclick="registrujStudentaFun();" type="button">Registracija studenta</button>
+								<button id="registrujNastavnika" onclick="registrujNastavnikaFun();" type="button">Registracija nastavnika</button>
+								<button id="registruj" onclick="submit" type="submit">Registracija</button>
+							</td>
+						</tr>
+					</table>
+					<div id="greskeId"></div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

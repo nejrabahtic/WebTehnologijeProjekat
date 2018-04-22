@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/*UNOS KOMENTARA*/
+.kolonaUK{
+	height: inherit;
+}
+.headerUK{
+	height: 50%;
+	overflow: hidden;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.centarUK{
+	height: 60%;
+	margin-top: 1%;
+	overflow: hidden;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tabelaUK{
+	border-collapse: collapse;
+	width: 100%;
+}
+.tabelaUK, td{
+	border: 3px solid #1B002B;
+}
+tr#prviredUK{
+	background-color: #EDE9EF;
+}
+td#prvakolonaUK{
+	background-color: #EDE9EF;
+}
+input{
+	background-color: #B7AFBC;
+}
+tr:hover{
+	background-color: initial;
+}

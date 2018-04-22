@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+div#elementiUS{
+  height: inherit;
+  padding-top: 5%;
+}
+table#tabelaUS{
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+	width: 40%;
+}
+textarea#textareapolje{
+  height: 200px;
+  background-color: #EDE9EF;
+}
+input#brojspirale{
+  width: -webkit-fill-available;
+  background-color: #EDE9EF;
+  text-align: center;
+}
+button#submitUS{
+  width: -webkit-fill-available;
+}

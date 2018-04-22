@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login forma</title>
+		<link rel="stylesheet" type="text/css" href="common.css"/>
+		<link rel="stylesheet" type="text/css" href="login.css"/>
+	</head>
+	<body>
+		<div class="meni">
+			<ul>
+				<li>
+					<img src="stars.png" alt="stars" height="32px" width="32px">
+				</li>
+				<li>
+					<a href="login.html" class="active">Login</a>
+				</li>
+				<li>
+					<a href="statistika.html">Statistika</a>
+				</li>
+				<li>
+					<a href="unoskomentara.html">Unos Komentara</a>
+				</li>
+			</ul>
+		</div>
+		<div class="glavni">
+			<div class="red">
+				<!--Forma za login-->
+				<div class="l">
+					<form>
+						<table class="left">
+							<tr>
+								<td colspan="2">
+									LOGIN
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input type="text" name="email" placeholder="E-mail">
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input type="password" name="sifra" placeholder="Password"> 
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<button id="loginse">Login</button>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<a href="login.html" id="sifrazaboravljena">Zaboravili ste šifru?</a>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<!--Forma za registraciju-->
+				<div class="r">
+					<form>
+						<table class="right">
+							<tr>
+								<td colspan="2">
+									REGISTRACIJA
+								</td>
+							</tr>
+							<tr> 
+								<td>
+									<input type="text" name="email" placeholder="E-mail">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" name="indeks" placeholder="Index">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<select id="ng">
+									  	<option value="jedan">Nastavna grupa 1</option>
+									  	<option value="dva">Nastavna grupa 2</option>
+									  	<option value="tri">Nastavna grupa 3</option>
+									  	<option value="četiri">Nastavna grupa 4</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="password" name="sifra" placeholder="Password">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="password" name="sifrapotvrda" placeholder="Potvrdi password">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button id="registrujse">Registracija</button>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

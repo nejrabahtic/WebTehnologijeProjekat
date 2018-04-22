@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/*ZAJEDNIČKI CSS*/
+a:link{
+	color: #3F002E;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+}
+a:visited{
+	color: #3F002E;
+}
+button{
+	display: inline-block;
+	border: 1px solid #FFFFFF;
+	background-color: #3F002E;
+	width: -webkit-fill-available;
+	height: 5%;
+	font-size: 15px;
+    color: #F6F5FA;
+    cursor: pointer;
+    padding: 0.4%;
+}
+button:hover{
+	background-color: #26001B;
+}
+body{
+	margin: 0;
+	background-color: #B7AFBC;
+	font-family: 'Roboto';
+}
+table{
+	padding: 2%;
+}
+table, th, tr{
+	border: 3px solid #1B002B;
+	text-align: center;
+	color: #3F002E;
+	font-weight: bold;
+}
+tr:hover{
+	background-color: #EDE9EF;
+}
+input{
+	text-align: center;
+	width: -webkit-fill-available;
+}
+.meni ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #EDE9EF;
+}
+.meni li{
+    float: left;
+}
+.meni li a{
+    display: inline-block;
+   	color: #3F002E;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.meni li a:hover{
+  	font-weight: bolder;  
+}
+.meni li img{
+	position: relative;
+	top: 6px;
+    left: 14px;
+}
+@media all and (max-width: 700px){
+	.meni ul{
+	    list-style-type: none;
+	    margin: 0;
+	    height: inherit;
+	    overflow: hidden;
+	    background-color: #EDE9EF;
+	}
+	.meni li{
+	    float: left;
+	    width: 100%;
+	    height: 30px;
+	}
+	.meni li a{
+	    display: block;
+	   	color: #3F002E;
+	    text-align: center;
+	    padding: 14px 16px;
+	    text-decoration: none;
+	}
+	.meni li a:hover{
+	  	font-weight: bolder;  
+	}
+	.meni li img{
+		position: relative;
+		top: 6px;
+		left: 47.5%;
+	}
+}

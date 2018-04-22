@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+div#elementiB{
+  width: inherit;
+  padding-top: 5%;
+}
+table#tabelaB{
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+	width: 40%;
+}
+button#buttonB{
+  width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}

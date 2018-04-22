@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+div#elementiN{
+  width: inherit;
+  padding-top: 5%;
+}
+table#tabelaN{
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+	width: 40%;
+}
+input{
+  width: -webkit-fill-available;
+  background-color: #EDE9EF;
+  text-align: center;
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Index page</title>
+		<link rel="stylesheet" type="text/css" href="public\css\common.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\login.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\unoskomentara.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\statistika.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\unosspiska.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\nastavnik.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\bitbucketpozivi.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="shortcut icon" href="public\favicon.png" type="star"/>
+	</head>
+	<body>
+		<div class="meni">
+			<ul>
+				<li><img src="\public\favicon.png" alt="star" height="32px" width="32px"></li>
+				<li class="gost" ><a onclick="otvori('login'); return false" href="#">Login</a></li>
+				<li class="student"><a onclick="otvori('statistika'); return false" href="#">Statistika</a></li>
+				<li class="student"><a onclick="otvori('unoskomentara'); return false" href="#">Unos komentara</a></li>
+				<li class="nastavnik"><a onclick="otvori('unosspiska'); return false" href="#">Unos spiska</a></li>
+				<li class="nastavnik"><a onclick="otvori('nastavnik'); return false" href="#">Nastavnik</a></li>
+				<li class="nastavnik"><a onclick="otvori('bitbucketpozivi'); return false" href="#">Bitbucket pozivi</a></li>
+				<li class="admin"><a onclick="otvori('listakorisnika'); return false" href="#">Lista Korisnika</a></li>
+				<li class="nastavnik student admin"><a onclick="Logout(); return false" href="#">Logout</a></li>
+
+			</ul>
+		</div>
+    <div id="kontejner">
+    </div>
+  </body>
+	<script src="public\js\poruke.js"></script>
+	<script src="public\js\validacija.js"></script>
+	<script src="public\js\unosspiska.js"></script>
+	<script src="public\js\kreirajFajl.js"></script>
+	<script src="public\js\unoskomentara.js"></script>
+	<script src="public\js\nastavnik.js"></script>
+	<script src="public\js\bitbucketpozivi.js"></script>
+	<script src="public\js\bitbucketApi.js"></script>
+	<script>
+		function otvori(podstranica){
+			var containter = "kontejner";
+			var containterElement = document.getElementById(containter);
+			var ajax = new XMLHttpRequest();
+
+			ajax.onreadystatechange = function(){
+				if( ajax.readyState == 4 && ajax.status == 200){
+					containterElement.innerHTML = ajax.responseText;
+					if(podstranica == 'listakorisnika')
+						forAdmin();
+					}
+			}
+			if (podstranica == 'login'){
+				ajax.open("GET", "/podstranice/login", true);
+				ajax.send();
+			}
+			else if (podstranica == 'statistika'){
+				ajax.open("GET", "/podstranice/statistika", true);
+				ajax.send();
+			}
+			else if (podstranica == 'unoskomentara'){
+				ajax.open("GET", "/podstranice/unoskomentara", true);
+				ajax.send();
+			}
+			else if (podstranica == 'unosspiska'){
+				ajax.open("GET", "/podstranice/unosspiska", true);
+				ajax.send();
+			}
+			else if (podstranica == 'nastavnik'){
+				ajax.open("GET", "/podstranice/nastavnik", true);
+				ajax.send();
+			}
+			else if (podstranica == 'bitbucketpozivi'){
+				ajax.open("GET", "/podstranice/bitbucketpozivi", true);
+				ajax.send();
+			} else if (podstranica == 'listakorisnika'){
+				ajax.open('GET', '/podstranice/listakorisnika', true);
+				ajax.send();
+			}
+			else{
+				ajax.open("GET", "/public/index", true);
+				ajax.send();
+			}
+		}
+
+		function adminMeni(){
+			let vidljive = document.getElementsByClassName('admin');
+			let nevidljive1 = document.getElementsByClassName('nastavnik');
+			let nevidljive2 = document.getElementsByClassName('student');
+			let nevidljive3 = document.getElementsByClassName('gost');
+
+			for(let i = 0; i<nevidljive1.length; i++)
+				nevidljive1[i].style.display = "none";
+			for(let i = 0; i<nevidljive2.length; i++)
+				nevidljive2[i].style.display = "none";
+			for(let i = 0; i<nevidljive3.length; i++)
+				nevidljive3[i].style.display = "none";
+
+			for(let i = 0; i<vidljive.length; i++)
+				vidljive[i].style.display = "";
+		}
+		function studentMeni(){
+			let vidljive = document.getElementsByClassName('student');
+			let nevidljive1 = document.getElementsByClassName('nastavnik');
+			let nevidljive2 = document.getElementsByClassName('admin');
+			let nevidljive3 = document.getElementsByClassName('gost');
+			for(let i = 0; i<nevidljive1.length; i++)
+				nevidljive1[i].style.display = "none";
+			for(let i = 0; i<nevidljive2.length; i++)
+				nevidljive2[i].style.display = "none";
+			for(let i = 0; i<nevidljive3.length; i++)
+				nevidljive3[i].style.display = "none";
+
+			for(let i = 0; i<vidljive.length; i++)
+				vidljive[i].style.display = "";
+		}
+		function nastavnikMeni(){
+			let vidljive = document.getElementsByClassName('nastavnik');
+			let nevidljive1 = document.getElementsByClassName('student');
+			let nevidljive2 = document.getElementsByClassName('admin');
+			let nevidljive3 = document.getElementsByClassName('gost');
+			for(let i = 0; i<nevidljive1.length; i++)
+				nevidljive1[i].style.display = "none";
+			for(let i = 0; i<nevidljive2.length; i++)
+				nevidljive2[i].style.display = "none";
+			for(let i = 0; i<nevidljive3.length; i++)
+				nevidljive3[i].style.display = "none";
+
+			for(let i = 0; i<vidljive.length; i++)
+				vidljive[i].style.display = "";
+		}
+
+		function gostMeni() {
+			let vidljive = document.getElementsByClassName('gost');
+			let nevidljive1 = document.getElementsByClassName('student');
+			let nevidljive2 = document.getElementsByClassName('admin');
+			let nevidljive3 = document.getElementsByClassName('nastavnik');
+			for(let i = 0; i<nevidljive1.length; i++)
+				nevidljive1[i].style.display = "none";
+			for(let i = 0; i<nevidljive2.length; i++)
+				nevidljive2[i].style.display = "none";
+			for(let i = 0; i<nevidljive3.length; i++)
+				nevidljive3[i].style.display = "none";
+
+			for(let i = 0; i<vidljive.length; i++)
+				vidljive[i].style.display = "";
+		}
+
+		function DajMiRolu(){
+			let ajax = new XMLHttpRequest();
+			ajax.onreadystatechange = function(){
+				if(ajax.readyState == 4 && ajax.status == 200)
+				{
+					switch (JSON.parse(ajax.responseText).role) {
+						case 'student':
+							studentMeni();
+							break;
+						case 'administrator':
+							adminMeni();
+							break;
+						case 'nastavnik':
+							nastavnikMeni();
+							break;
+						default:
+							gostMeni();
+					}
+				}else if(ajax.readyState == 4){
+					console.log(ajax.responseText);
+				}
+			}
+			ajax.open('GET', 'http://localhost:3000/role', true)
+			ajax.setRequestHeader("Content-type", "application/json");
+      ajax.send();
+		}
+
+	function Logout(){
+		let ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function(){
+			if(ajax.readyState == 4 && ajax.status == 200)
+			{
+				location.reload();
+			}
+			else if(ajax.readyState == 4){
+				console.log(ajax.responseText);
+			}
+		}
+
+		ajax.open('GET', 'http://localhost:3000/logout', true);
+		ajax.send();
+	}
+
+	var Values = null;
+
+function forAdmin() {
+  let x = document.getElementById('listUsersTable');
+  if(!x) return;
+  getAllUsers( function(err, data){
+		console.log(err);
+		console.log(data);
+    if(err){
+      return;
+    }
+    Values = data.array;
+    postaviTabelu();
+  } )
+}
+
+
+function getAllUsers(cb){
+	let ajax = new XMLHttpRequest();
+  ajax.onreadystatechange = () => {
+    if( ajax.readyState == 4 && ajax.status == 200 ){
+      cb( null, JSON.parse( ajax.responseText ) )
+    } else if( ajax.readyState == 4 ){
+      cb( ajax.status, JSON.parse(ajax.responseText) );
+    }
+  }
+  ajax.open('GET', 'http://localhost:3000/korisnici', true);
+  ajax.setRequestHeader("Content-type", "application/json");
+  ajax.send();
+}
+
+function doVerify(x, fn) {
+  updateVerify( x, (err, res) =>{
+    if(err) {
+      return;
+    }
+    Values = Values.map( value => value.id == res.id? { ...value, verified: res.verified }: value )
+    postaviTabelu();
+    if(fn)
+      fn();
+  } )
+
+}
+
+function updateVerify(id, cb){
+	let ajax = new XMLHttpRequest();
+  ajax.onreadystatechange = ()=>{
+    if(ajax.readyState == 4 && ajax.status == 200){
+      console.log(ajax.responseText);
+      cb(null, JSON.parse(ajax.responseText));
+    }else if(ajax.readyState == 4){
+      console.log(ajax);
+      cb(ajax.status, ajax.responseText);
+    }
+  }
+  ajax.open('PUT', 'http://localhost:3000/verify', true);
+  ajax.setRequestHeader("Content-type", "application/json");
+  ajax.send(JSON.stringify({
+    id: id
+  }))
+}
+
+function postaviTabelu() {
+
+  let x = document.getElementById('listUsersTable');
+  if(!x) return;
+  x.innerHTML = "";
+  let row = x.insertRow( x.rows.length );
+  let c1 = row.insertCell( 0 );
+  c1.style = "border-bottom: 2px black solid;"
+  row.insertCell(1)
+  let c2 = row.insertCell( 2 );
+  c2.style = "border-bottom: 2px black solid;"
+  c1.innerHTML = "Username";
+  c2.innerHTML = "Verify stuff"
+	for(let i = 0; i<Values.length; i++){
+			let row = x.insertRow( x.rows.length );
+	    let c1 = row.insertCell( 0 );
+	    c1.style = "border-bottom: 1px black solid;"
+	    row.insertCell(1)
+	    let c2 = row.insertCell( 2 );
+	    c1.innerHTML = Values[i].username;
+	    c2.style = c1.style;
+	    c2.innerHTML = Values[i].RoleRole == 'nastavnik'? "<button onclick='doVerify(" + '"'+ Values[i].id +'"' + ")'>" + (Values[i].verified? "Unverify": "Verify") + "</button>": "";
+
+		}
+
+	}
+	function createElement( tag, value ){
+	  var elem = document.createElement("p");
+	  elem.appendChild(document.createTextNode(tag + ": " + value));
+	  return elem;
+	}
+
+	function studentSearch( cont, tmp ){
+	  cont.appendChild( createElement("Ime", tmp.UserInfo.name) );
+	  cont.appendChild( createElement("Indeks", tmp.UserInfo.index) );
+	  cont.appendChild( createElement("Nastavna grupa", tmp.UserInfo.teachingGroup) );
+	  cont.appendChild( createElement("Ime repozitorija", tmp.UserInfo.repoName) );
+	  cont.appendChild( createElement("Bitbucket URL", tmp.UserInfo.bitbucketURL) );
+	  cont.appendChild( createElement("Bitbucket SSH", tmp.UserInfo.bitbucketSSH) );
+	}
+
+	function nastavnikSearch( cont, tmp ) {
+	  cont.appendChild( createElement( "Ime", tmp.UserInfo.name) );
+	  cont.appendChild( createElement( "Akademska godina", tmp.UserInfo.currAcademicYear ) );
+	  cont.appendChild( createElement( "Semestar", tmp.UserInfo.currSemester ) );
+	  cont.appendChild( createElement( "Email", tmp.UserInfo.email ) );
+	  cont.appendChild( createElement("Broj grupa", tmp.UserInfo.maxGroup) );
+	  let btn = document.createElement("button");
+	  btn.innerHTML = tmp.verified? "Unverify": "Verify";
+	  btn.setAttribute('id', 'verUnverBtn')
+	  btn.addEventListener("click", ()=> doVerify(tmp.id, ()=> { let x = document.getElementById('verUnverBtn'); x.innerHTML = x.innerHTML == "Verify"? "Unverify": "Verify";  }))
+	  cont.appendChild( btn );
+	}
+
+	function searchBarKeyPressed(e){
+	  if(e.keyCode === 13){
+	    e.preventDefault();
+	    let tmp = Values.find( val => val.username == e.target.value );
+	    if( tmp ){
+	      let cont = document.getElementById('userInfoId');
+	      cont.innerHTML = "";
+	      cont.appendChild( createElement( "Username", tmp.username ) );
+	      if(tmp.Role.role == 'student')
+	        studentSearch( cont, tmp );
+	      else if (tmp.Role.role == 'nastavnik')
+	        nastavnikSearch( cont, tmp )
+	    }
+	  }else {
+	    let cont = document.getElementById('userInfoId');
+	    cont.innerHTML = "";
+	  }
+	}
+
+
+		DajMiRolu();
+	</script>
+</html>

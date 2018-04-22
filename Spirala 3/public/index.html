@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Index page</title>
+		<link rel="stylesheet" type="text/css" href="public\css\common.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\login.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\unoskomentara.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\statistika.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\unosspiska.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\nastavnik.css"/>
+		<link rel="stylesheet" type="text/css" href="public\css\bitbucketpozivi.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="shortcut icon" href="public\favicon.png" type="star"/>
+	</head>
+	<body>
+		<div class="meni">
+			<ul>
+				<li><img src="\public\favicon.png" alt="star" height="32px" width="32px"></li>
+				<li><a onclick="otvori('login'); return false" href="#">Login</a></li>
+				<li><a onclick="otvori('statistika'); return false" href="#">Statistika</a></li>
+				<li><a onclick="otvori('unoskomentara'); return false" href="#">Unos komentara</a></li>
+				<li><a onclick="otvori('unosspiska'); return false" href="#">Unos spiska</a></li>
+				<li><a onclick="otvori('nastavnik'); return false" href="#">Nastavnik</a></li>
+				<li><a onclick="otvori('bitbucketpozivi'); return false" href="#">Bitbucket pozivi</a></li>
+			</ul>
+		</div>
+    <div id="kontejner">
+    </div>
+  </body>
+	<script src="public\js\poruke.js"></script>
+	<script src="public\js\validacija.js"></script>
+	<script src="public\js\unosspiska.js"></script>
+	<script src="public\js\kreirajFajl.js"></script>
+	<script src="public\js\unoskomentara.js"></script>
+	<script src="public\js\nastavnik.js"></script>
+	<script src="public\js\bitbucketpozivi.js"></script>
+	<script src="public\js\bitbucketApi.js"></script>
+	<script>
+		function otvori(podstranica){
+			var containter = "kontejner";
+			var containterElement = document.getElementById(containter);
+			var ajax = new XMLHttpRequest();
+
+			ajax.onreadystatechange = function(){
+				if( ajax.readyState == 4 && ajax.status == 200)
+					containterElement.innerHTML = ajax.responseText;
+			}
+			if (podstranica == 'login'){
+				ajax.open("GET", "/podstranice/login", true);
+				ajax.send();
+			}
+			else if (podstranica == 'statistika'){
+				ajax.open("GET", "/podstranice/statistika", true);
+				ajax.send();
+			}
+			else if (podstranica == 'unoskomentara'){
+				ajax.open("GET", "/podstranice/unoskomentara", true);
+				ajax.send();
+			}
+			else if (podstranica == 'unosspiska'){
+				ajax.open("GET", "/podstranice/unosspiska", true);
+				ajax.send();
+			}
+			else if (podstranica == 'nastavnik'){
+				ajax.open("GET", "/podstranice/nastavnik", true);
+				ajax.send();
+			}
+			else if (podstranica == 'bitbucketpozivi'){
+				ajax.open("GET", "/podstranice/bitbucketpozivi", true);
+				ajax.send();
+			}
+			else{
+				ajax.open("GET", "/public/index", true);
+				ajax.send();
+			}
+		}
+	</script>
+</html>

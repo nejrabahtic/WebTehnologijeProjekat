@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/*LOGIN*/
+.glavni{
+	margin-top: 8%;
+	overflow: hidden;
+}
+.red{
+	width: inherit;
+	overflow: hidden;
+}
+.l{
+	display: inline-block;
+	width: 50%;
+	margin: 0;
+	vertical-align: top;
+}
+.r{
+	display: inline-block;
+	width: 49%;
+	margin: 0;
+	vertical-align: top;
+}
+.left{
+	margin-left: auto;
+	width: 60%;
+	padding: 1%;
+	border: 3px solid #1B002B;
+	box-shadow: 0px 2px 4px #EDE9EF;
+}
+.right{
+	margin-right: auto;
+	width: 60%;
+	padding: 1%;
+	border: 3px solid #1B002B;
+	box-shadow: 0px 2px 4px #EDE9EF;
+}
+td{
+	border-radius: 25px;
+}
+#ng{
+	width: -webkit-fill-available;
+	height: 27px;
+}
+tr:hover{
+	background-color: initial;
+}
+#greskeId{
+	width: 49%;
+	text-align: left;
+}
+@media only screen and (max-width: 700px){
+	.glavni{
+		margin-top: 10%;
+		overflow: hidden;
+	}
+	.red{
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		overflow: hidden;
+	}
+	.l{
+		display: inline-block;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.r{
+		display: inline-block;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.left{
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+		padding: 0.5%;
+		border: 3px solid #1B002B;
+	}
+	.right{
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+		padding: 0.5%;
+		border: 3px solid #1B002B;
+	}
+	#ng{
+		width: -webkit-fill-available;
+	}
+	tr:hover{
+		background-color: initial;
+	}
+	#greskeId{
+		width: 90%;
+		text-align: center;
+		margin-left: auto;
+	    margin-right: auto;
+	}
+}
